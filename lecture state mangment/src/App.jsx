@@ -7,6 +7,9 @@ import Handlers from './components/Handlers'
 import Greet from './components/Handlers1'
 import FormHandler from './components/formHandler'
 import Handlers2 from './components/Handlers2'
+import FetchApi from './components/FetchApi'
+import StateChange from './components/State_change'
+import Interval from './components/Interval'
 
 
 function App() {
@@ -19,6 +22,9 @@ function App() {
       < Greet />
       < FormHandler />
       < Handlers2 />
+      < FetchApi />
+      < StateChange />
+      < Interval />
     </>
   )
 }

@@ -1,0 +1,18 @@
+import React, { useState } from 'react';
+
+function ToggleMessage() {
+const [show, setShow] = useState(true);
+
+return (
+    <div>
+    {show && <h3>Hello React!</h3>}
+    <button onClick={() => setShow(!show)}>
+        {show ? 'Hide' : 'Show'} Message
+    </button>
+    </div>
+);
+}
+
+export default ToggleMessage;
+
+

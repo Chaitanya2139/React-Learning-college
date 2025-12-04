@@ -7,7 +7,7 @@ const Header = () => {
       {/* Top Row */}
       <div className='flex items-center justify-between px-6 py-3'>
         {/* Logo */}
-        <Link to="/" className="flex-shrink-0">
+        <Link to="/" className="flex-shrink-0 border-r pr-6 border-gray-300">
           <img 
             src="https://www.cibil.com/official-partners/_jcr_content/root/contentcontainer/pagesection/columnrow/image.coreimg.svg/1670428891123/cibil-logo-lt.svg" 
             alt="CIBIL Logo" 
@@ -44,8 +44,8 @@ const Header = () => {
       </div>
 
       {/* Bottom Row - Navigation Links */}
-      <div className='border-t border-gray-200'>
-        <nav className='flex items-center gap-8 px-40 py-3'>
+      <div >
+        <nav className='flex items-center gap-8 px-48 py-3'>
           <Link to='/productServices' className="text-sm text-gray-700 hover:text-gray-900">
             Products & Services
           </Link>

@@ -1,68 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* design tokens and simple light/dark variables */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg: #ffffff;
+  --text: #213547;
+  --muted: #6b7280;
+  --accent: #00A6CA;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* when the .dark class is applied to <html> or <body> these override */
+.dark {
+  --bg: #0b1220;
+  --text: rgba(255,255,255,0.92);
+  --muted: #9ca3af;
 }
 
 body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* simple helpers to demo theme changes */
+.theme-box {
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* basic layout and element styles (fallback if Tailwind isn't active) */
+html, body, #root {
+  height: 100%;
+}
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  line-height: 1.4;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 1rem 2rem;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h2 {
+  font-size: 1.7rem;
+  margin: 0 0 0.75rem 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+input[type="text"], input[type="search"], input[type="email"] , input, textarea {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+button, .btn {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.35);
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.border-t {
+  border-top: 1px solid rgba(0,0,0,0.12);
+  padding-top: 1rem;
+  margin-top: 1rem;
 }
+
+.theme-box {
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.theme-box .btn {
+  margin-top: 0.6rem;
+}
+
+/* Improved UI styles */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.top-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.input {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 6px;
+  min-width: 180px;
+}
+
+.btn.primary {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+}
+
+.heading {
+  font-size: 1.8rem;
+  margin: 0 0 0.6rem 0;
+}
+
+.booklist {
+  margin-top: 1rem;
+}
+
+.book-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.02);
+  margin-bottom: 0.5rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.dashboard-card {
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.03);
+  margin-top: 1rem;
+}
+
+.time-large {
+  font-size: 2.8rem;
+  margin: 0.4rem 0;
+}
+
+/* Dark-mode overrides for the improved UI */
+.dark .container { background: transparent; }
+.dark .book-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.03); }
+.dark .dashboard-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); }
+.dark .input { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: var(--text); }
+.dark .btn.primary { background-color: #00A6CA; }
+
